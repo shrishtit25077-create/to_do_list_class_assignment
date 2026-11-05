@@ -1,45 +1,87 @@
-{% load static  %}
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My To-Do List</title>
 
-    <link href={% static 'home.css' %}
-          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
 </head>
+
 <body>
-    <div class ="parent_section">
+
+    <div class="parent_section">
+
         {% include 'navbar.html' %}
+
         <div class="Task_bar">
-            <h1>All Task</h1>
+
+            <h1>All Tasks</h1>
+
             <table>
+
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Done</th>
                     <th>Created</th>
                     <th>Actions</th>
-        </tr>
-        
-        {% for data in data %}
-        <tr>
-            <td>{{data.title}}</td>
-            <td>{{data.description}}</td>
-            <td>{{data.done}}</td>
-            <td>{{data.created}}</td>
-        </tr>
-        {%empty%}
-        <tr>
-            <td>No Tasks Yet</td>
-        </tr>
-            
-        {% endfor %}
-            
+                </tr>
+
+                {% for data in data %}
+
+                <tr>
+
+                    <td>{{ data.title }}</td>
+
+                    <td>{{ data.description }}</td>
+
+                    <td>
+                        <form method="POST" action="{% url 'complete_task' data.id %}">
+                            {% csrf_token %}
+
+                            <input type="checkbox"
+                                {% if data.completed %}checked{% endif %}
+                                onchange="this.form.submit()">
+                        </form>
+                    </td>
+
+                    <td>{{ data.created_at|date:"Y-m-d H:i" }}</td>
+
+                    <td class="actions">
+
+                        <a href="{% url 'edit_task' data.id %}" class="edit_btn">
+                            Edit
+                        </a>
+
+                        <form method="POST" action="{% url 'delete_task' data.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit" class="delete_btn">
+                                Delete
+                            </button>
+                        </form>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="5">No tasks yet.</td>
+                </tr>
+
+                {% endfor %}
 
             </table>
+
         </div>
+
     </div>
 
 </body>

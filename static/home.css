@@ -9,70 +9,73 @@ body {
     background-color: white;
 }
 
-/* Main Section */
 .parent_section {
-    padding: 30px 6%;
+    width: 88%;
+    margin: 40px auto;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #f8f8f8;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar h2 {
-    font-size: 20px;
-    font-weight: normal;
-}
-
-.navbar a {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.navbar a:hover {
-    background-color: #0056b3;
-}
-
-/* Task Bar */
 .Task_bar {
-    width: 100%;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: white;
+    width: 90%;
+    margin: 40px auto;
 }
 
-/* Heading */
 .Task_bar h1 {
     font-size: 28px;
     font-weight: normal;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* Table */
 .Task_bar table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.Task_bar th,
-.Task_bar td {
-    padding: 12px;
-    text-align: left;
-}
-
 .Task_bar th {
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
     background-color: white;
+    border-bottom: 1px solid #ddd;
 }
 
 .Task_bar td {
+    padding: 10px;
+    text-align: left;
     background-color: #eeeeee;
     border-bottom: 1px solid #ddd;
+}
+
+input[type="checkbox"] {
+    accent-color: #198754;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.actions {
+    white-space: nowrap;
+}
+
+.edit_btn {
+    display: inline-block;
+    background-color: #ffc107;
+    color: black;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.delete_btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Task_bar td form {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    vertical-align: middle;
 }

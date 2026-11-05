@@ -1,42 +1,49 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
 
     <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
     <link rel="stylesheet" href="{% static 'add_task.css' %}">
 </head>
+
 <body>
 
-<div class="parent_section">
+    <div class="parent_section">
 
-    {% include 'navbar.html' %}
+        {% include 'navbar.html' %}
 
-    <h1>Add Task</h1>
+        <h1>Add Task</h1>
 
-    <form method="POST">
-        {% csrf_token %}
+        <form method="POST">
 
-        <label>Title</label>
-        <input type="text" name="title" required>
+            {% csrf_token %}
 
-        <label>Description</label>
-        <textarea name="description" required></textarea>
+            <label>Title</label>
+            <input type="text" name="title" required>
 
-        <div class="buttons">
-            <button type="submit">Save</button>
+            <label>Description</label>
+            <textarea name="description" required></textarea>
 
-            <a href="{% url 'home' %}" class="cancel">
-                Cancel
-            </a>
-        </div>
+            <div class="buttons">
 
-    </form>
+                <button type="submit">Save</button>
 
-</div>
+                <a href="{% url 'home' %}" class="cancel">
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </body>
 </html>

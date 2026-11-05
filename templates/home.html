@@ -1,0 +1,46 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do List</title>
+
+    <link href={% static 'home.css' %}
+          rel="stylesheet">
+</head>
+<body>
+    <div class ="parent_section">
+        {% include 'navbar.html' %}
+        <div class="Task_bar">
+            <h1>All Task</h1>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Done</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+        </tr>
+        
+        {% for data in data %}
+        <tr>
+            <td>{{data.title}}</td>
+            <td>{{data.description}}</td>
+            <td>{{data.done}}</td>
+            <td>{{data.created}}</td>
+        </tr>
+        {%empty%}
+        <tr>
+            <td>No Tasks Yet</td>
+        </tr>
+            
+        {% endfor %}
+            
+
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

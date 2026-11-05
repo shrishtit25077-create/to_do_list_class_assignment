@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 15px 20px;
+}
+
+.navbar h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.add_btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.add_btn:hover {
+    background-color: #0056b3;
+}
